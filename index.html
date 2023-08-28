@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header class="container mx-auto">
+        <h3 class="text-5xl text-center my-8">phone shop</h3>
+    </header>
+    <main class="container mx-auto">
+       
+<section >
+
+<!-- serch -->
+    <div>
+        <input id="text-field" type="text" placeholder="Search...." class="input input-bordered input-info w-full max-w-xs" />
+        <button onclick="searchHendel()" class="btn btn-secondary text-white w-2/12">Search</button>
+    </div>
+
+     <!-- loding -->
+     <div id="loading-Spinner" class="grid items-center justify-center -mt-24 hidden my-40">
+        <span class="loading loading-spinner text-secondary"></span>
+    </div>
+     <!-- card 1 -->
+    <div  id="phone-continer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+       
+    </div>
+<!-- omodal -->
+<!-- Open the modal using ID.showModal() method -->
+
+<dialog id="show_my_modal" class="modal modal-bottom sm:modal-middle">
+  <form method="dialog" class="modal-box">
+ <div id="show-detels-continer">
+
+ </div>
+    <div class="modal-action justify-center w-full">
+      <!-- if there is a button in form, it will close the modal -->
+      <button class="btn btn-secondary text-white">Close</button>
+    </div>
+  </form>
+</dialog>
+
+
+    <!-- show btn -->
+    <div class="my-10 text-center">
+        <button onclick="showAllHandel()" id="showall-btn" class="btn btn-secondary hidden text-white">ShowAll</button>
+    </div>
+</section>
+    </main>
+    <script src="script/api.js"></script>
+</body>
+</html>
