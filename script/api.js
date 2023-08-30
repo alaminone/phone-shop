@@ -1,16 +1,19 @@
-const phoneLode = async (searchText = "iphone" ,isShow) => {
+
+const phoneLode = async (searchText = "iphone", isShow) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await res.json();
     const phone = data.data;
-    // console.log(phone);
-    displyPhone(phone ,isShow);
+    if (data && data.data && data.data.length > 0) {
+        displyPhone(phone, isShow);
+    } else {
+        const phoneContainer = document.getElementById('phone-continer');
+        phoneContainer.textContent = 'No matching phones found.';
+    }
 }
 
+
 const displyPhone =( phone,isShow) => {
-    
-
-const phoneContainer = document.getElementById('phone-continer');
-
+    const phoneContainer = document.getElementById('phone-continer');
 phoneContainer.textContent = '';
 
 const showAll = document.getElementById('showall-btn');
@@ -52,8 +55,13 @@ const searchHendel = (isShow) => {
    const searchText = searchField.value;
    tgoololoadingSpinner(true);
 //    console.log(searchText);
+
+
 phoneLode(searchText,isShow);
+
 }
+
+
 
 const tgoololoadingSpinner = (isloding) => {
     const loadingSpinner = document.getElementById('loading-Spinner');
